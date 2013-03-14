@@ -1,0 +1,19 @@
+<p>
+  <b>Comment:</b>
+  <%= comment.body %>
+</p>
+ 
+<p>
+  <b>Comment_id:</b>
+  <%= comment.Comment_id %>
+</p>
+<p>
+  <b>Author:</b>
+  <%= comment.user_id %>
+</p>
+
+<p>
+  <%= link_to 'Destroy Comment', [comment.post, comment],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+</p>

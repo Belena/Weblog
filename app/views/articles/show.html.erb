@@ -1,0 +1,83 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @article.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @article.content %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @article.author %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @article.category %>
+</p>
+
+<p>
+  <b>Article:</b>
+  <%= @article.article_id %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @article.rating %>
+</p>
+
+<p>
+  <b>Created:</b>
+  <%= @article.created %>
+</p>
+
+
+<!-- to render comment on show.html.erb template: -->
+
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+  <p>
+    <b>Comment:</b>
+    <%= comment.body %>
+  </p>
+ 
+  <p>
+    <b>Comment number:</b>
+    <%= comment.comment_id %>
+  </p>
+  <p>
+    <b>Author:</b>
+    <%= comment.user_id %>
+  </p>
+<% end %>
+
+<!-- This adds a form on the Post show page that creates a new comment by calling the CommentsController create action -->
+
+<h2>Add a comment:</h2>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_field :body %>
+  </div>
+  <h2>Enter your comment</h2>
+  <div class="field">
+    <%= f.label :comment_id %><br />
+    <%= f.text_area :comment_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_area :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+<%= link_to 'Edit Article', edit_article_path(@article) %> |
+<%= link_to 'Back to articles', articles_path %>
