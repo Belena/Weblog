@@ -5,7 +5,7 @@
  
 <p>
   <b>Comment_id:</b>
-  <%= comment.Comment_id %>
+  <%= comment.comment_id %>
 </p>
 <p>
   <b>Author:</b>
@@ -13,7 +13,7 @@
 </p>
 
 <p>
-  <%= link_to 'Destroy Comment', [comment.post, comment],
+  <%= link_to 'Destroy comment', [comment.article, comment],
                :confirm => 'Are you sure?',
                :method => :delete %>
 </p>

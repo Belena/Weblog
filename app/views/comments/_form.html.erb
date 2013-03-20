@@ -1,16 +1,16 @@
 <%= form_for([@article, @article.comments.build]) do |f| %>
   <div class="field">
-    <%= f.label :body %><br />
+    <%= f.label :body, "Write your comment" %><br />
     <%= f.text_field :body %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :comment_id %><br />
+    <%= f.label :comment_id, "comment number:" %><br />
     <%= f.text_area :comment_id %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :user_id %><br />
+    <%= f.label :user_id, "Author:" %><br />
     <%= f.text_area :user_id %>
-  </div>
+  </div><br />
   <div class="actions">
     <%= f.submit %>
   </div>

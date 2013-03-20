@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
+  
   # to allow change or delete articles only after authentification
-  http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
+  # http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
+before_filter :authenticate_user!, :except => [:show, :index]
 
   # GET /articles
   # GET /articles.json
@@ -54,6 +56,13 @@ class ArticlesController < ApplicationController
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
+        
+        # another way:
+        # if @article.save
+        #   redirect_to articles_path, :notice => "Your article was created"
+        # else
+        #   render "new"
+        # end
   end
 
   # PUT /articles/1
@@ -76,10 +85,10 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1.json
   def destroy
     @article = Article.find(params[:id])
-    @article.destroy
+    @article.delete
 
     respond_to do |format|
-      format.html { redirect_to articles_url }
+      format.html { redirect_to articles_url, notice: 'Your post has been deleted' }
       format.json { head :no_content }
     end
   end

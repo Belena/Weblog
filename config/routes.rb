@@ -1,10 +1,32 @@
 Weblog::Application.routes.draw do
+  
+  get "site/about"
+
+  get "site/contact"
+
+  get "site/home"
+
+match '/about' => 'site#about'
+match '/contact' => 'site#contact'
+match '/home' => 'site#home'
+match '/stories' => 'articles#index'
+
+  devise_for :users, :path_names => {:sign_up => "register"} do
+    get 'signout' => 'devise/sessions#destroy'
+  end
+
+  # add a route so that Rails knows where we would like to navigate 
+  # to see comments
+  # This creates comments as a nested resource within posts. 
+
+  
   resources :articles do
     resources :comments
   end
 
 
   get "home/index"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -56,6 +78,7 @@ Weblog::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'home#index'
+  # root :to => 'site#home'
 
   # See how all your routes lay out with "rake routes"
 
