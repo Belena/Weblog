@@ -6,6 +6,13 @@ gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 
+gem 'sunspot_rails', '~> 1.3.0'
+
+group :development do
+    gem 'sunspot_solr'
+  end
+
+gem 'progress_bar'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

@@ -39,30 +39,47 @@
    <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
+          <% if user_signed_in? %>
+          <h5 class="pull-right">Signed in as <%= current_user.email %></h5>
+          <% end %>
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="index.php"><span class="color-highlight">OVERSEAS</a>
+          <a class="brand" href="/home"><span class="color-highlight">OVERSEAS</a>
+         
           <div class="nav-collapse">
             <ul class="nav pull-right">
               <li class="active"><a href="/home">Home</a></li>
               <li><a href="/stories">Stories</a></li>
-			  <li><a href="/contact">Contact us</a></li>
-			  <li><a href="/about">About us</a></li>
+			        <li><a href="/contact">Contact us</a></li>
+	
 			  	<% if user_signed_in? %>
 			  	<!-- <p>Signed in as <%= current_user.email %>.</p> -->
-			  <li> 
-       		 <%= link_to "Sing out", signout_path %></li>
-    			<% else %>
-       				 <li><%= link_to 'Sing up', new_user_registration_path %> </li>
+               <li><%= link_to 'Create new article!', new_article_path %></li>
+               <li><%= link_to "Sign out", signout_path %></li>
+    			 <% else %>
+       				 <li><%= link_to 'Sign up', new_user_registration_path %> </li>
        				 <li><%= link_to 'Sign in', new_user_session_path %></li>
     			<% end %>
-			 
-            </ul>
+            
+           <li> <form class="navbar-search pull-right">
+            <input type="text" class="search-query" placeholder="Search">
+            </form>
+            </li>
+          
+          </ul>
+
+
           </div><!--/.nav-collapse -->
+         
+            
+          
+
         </div>
+         
+
       </div>
     </div>
 	<div class="container">

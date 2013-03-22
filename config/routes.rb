@@ -1,5 +1,8 @@
 Weblog::Application.routes.draw do
   
+  resources :searches
+
+
   get "site/about"
 
   get "site/contact"
