@@ -4,8 +4,7 @@ class Article < ActiveRecord::Base
 validates :title, :uniqueness => { :message => 'already taken!'}
 validates :title, :presence => true,
 					:length => { :minimum => 5 }
-
-validates :author, :presence => true
+# validates :author, :presence => true
 validates :content, :presence => true
 
 # declare the relationship between two models and in case article destroyed comment will be destroyed as well

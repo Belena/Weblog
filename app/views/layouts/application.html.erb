@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Weblog" %></title>
-    <%= csrf_meta_tags %>
+   
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -13,6 +13,8 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag :application %>
+    <%= csrf_meta_tags %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
@@ -51,9 +53,9 @@
          
           <div class="nav-collapse">
             <ul class="nav pull-right">
-              <li class="active"><a href="/home">Home</a></li>
-              <li><a href="/stories">Stories</a></li>
-			        <li><a href="/contact">Contact us</a></li>
+              <li class="active"><%= link_to "Home", home_path %></li>
+			        <li><%= link_to "Stories", articles_path %></li>
+              <li><%= link_to "Contact us", contact_path %></li>
 	
 			  	<% if user_signed_in? %>
 			  	<!-- <p>Signed in as <%= current_user.email %>.</p> -->
@@ -63,11 +65,17 @@
        				 <li><%= link_to 'Sign up', new_user_registration_path %> </li>
        				 <li><%= link_to 'Sign in', new_user_session_path %></li>
     			<% end %>
+
+          <li>
+            <%= render 'articles/search' %>
             
-           <li> <form class="navbar-search pull-right">
+          </li>
+            
+           <!-- <li> <form class="navbar-search pull-right">
             <input type="text" class="search-query" placeholder="Search">
             </form>
             </li>
+ -->
           
           </ul>
 
@@ -82,23 +90,19 @@
 
       </div>
     </div>
+
+
 	<div class="container">
 	<!--Start Carousel-->
           <div id="myCarousel" class="carousel slide">
             <div class="carousel-inner">
               <div class="item active">
                 <%= image_tag('featured/1.jpg') %>
-                <div class="carousel-caption">
-                  <h4>First Thumbnail label</h4>
-                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                </div>
+              
               </div>
               <div class="item">
                 <%= image_tag('featured/2.jpg') %>
-                <div class="carousel-caption">
-                  <h4>Second Thumbnail label</h4>
-                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                </div>
+              
               </div>
             </div>
             <a class="left carousel-control" href="#myCarousel" data-slide="prev"><%= image_tag('arrow.png', :alt => 'arrow.png') %></a>
@@ -110,7 +114,7 @@
  	
 
 
-	<div class="row">
+ <div class="row">
 		<div class="span12">
 	 		<% flash.each do |key, value| %>
 	 			<%if flash[:notice] -%>
@@ -128,54 +132,43 @@
 		
 
      
-	  <!--Start second row of columns-->
 	  
-	  <div class="row">
-		<div class="span6 thumb-list">
-			<a rel="lightbox[secondary]" href="/assets/thumb-small01.png"><%= image_tag('thumb-small01.png', :alt => 'thumb-small01.png') %>
-			<h3><a href="#">This Should Be Your Title.</a></h3>
-			<p>This will be the description or something I guess. I don't know. Your choice.You could summarize something here. Keep it simple. Just a few short sentences. Maybe one large one? No, a few short ones.</p>
-		</div>
-		<div class="span6 thumb-list">
-			<a rel="lightbox[secondary]" href="/assets/thumb-small02.png"><%= image_tag('thumb-small02.png', :alt => 'thumb-small02.png') %>
-			<h3><a href="#">This Should Be Your Title.</a></h3>
-			<p>This will be the description or something I guess. I don't know. Your choice.</p>
-			<a href="#" class="btn">Details</a>
-		</div>
-	  </div>
-	 <hr />
-
 		<footer class="row">
-			<div>
 				<div class="span12">
 					<div class="is-padded">
 					</div>
 				</div>
+        <p>
+      &copy;2013 NCI<br>
+      Design by Elena</a>
+      </p>
 		</footer>
     </div><!-- /container -->
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/jquery.js"></script>
-    <script src="assets/bootstrap-transition.js"></script>
-	<script src="assets/bootstrap-carousel.js"></script>
-    <script src="assets/bootstrap-alert.js"></script>
-    <script src="assets/bootstrap-modal.js"></script>
-    <script src="assets/bootstrap-dropdown.js"></script>
-    <script src="assets/bootstrap-scrollspy.js"></script>
-    <script src="assets/bootstrap-tab.js"></script>
-    <script src="assets/bootstrap-tooltip.js"></script>
-    <script src="assets/bootstrap-popover.js"></script>
-    <script src="assets/bootstrap-button.js"></script>
-    <script src="assets/bootstrap-collapse.js"></script>
-    <script src="assets/bootstrap-typeahead.js"></script>
-	<script src="assets/jquery-ui-1.8.18.custom.min.js"></script>
-	<script src="assets/jquery.smooth-scroll.min.js"></script>
-	<script src="assets/lightbox.js"></script>
+    <script src="/assets/jquery.js"></script>
+    <script src="/assets/bootstrap-transition.js"></script>
+	<script src="/assets/bootstrap-carousel.js"></script>
+    <script src="/assets/bootstrap-alert.js"></script>
+    <script src="/assets/bootstrap-modal.js"></script>
+    <script src="/assets/bootstrap-dropdown.js"></script>
+    <script src="/assets/bootstrap-scrollspy.js"></script>
+    <script src="/assets/bootstrap-tab.js"></script>
+    <script src="/assets/bootstrap-tooltip.js"></script>
+    <script src="/assets/bootstrap-popover.js"></script>
+    <script src="/assets/bootstrap-button.js"></script>
+    <script src="/assets/bootstrap-collapse.js"></script>
+    <script src="/assets/bootstrap-typeahead.js"></script>
+	<script src="/assets/jquery-ui-1.8.18.custom.min.js"></script>
+	<script src="/assets/jquery.smooth-scroll.min.js"></script>
+	<!-- // <script src="/assets/lightbox.js"></script> -->
+  <%= javascript_include_tag "main", "columns" %>
 		<script>
 $('.carousel').carousel({
   interval: 5000
 })
 </script>
+
   </body>
 </html>

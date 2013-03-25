@@ -85,7 +85,7 @@ before_filter :authenticate_user!, :except => [:show, :index]
   # DELETE /articles/1.json
   def destroy
     @article = Article.find(params[:id])
-    @article.delete
+    @article.destroy
 
     respond_to do |format|
       format.html { redirect_to articles_url, notice: 'Your post has been deleted' }
