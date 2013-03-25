@@ -21,12 +21,9 @@
     <%= f.text_area :content, :style => 'width: 520px;' 'height:300px;'%>
   </div>
   <div class="field">
-    <%= f.label :author %><br />
-    <%= f.text_field :author, :style => 'width: 520px;' %>
-  </div>
-  <div class="field">
     <%= f.label :category %><br />
-    <%= f.text_field :category, :style => 'width: 520px;' %>
+    <%= f.select(:category, [['Travel'], ['Personal'], ['Unusual'],]) %>
+   <!-- <%= f.text_field :category, :style => 'width: 520px;' %> -->
   </div>
 
  <!--  <div class="field">
