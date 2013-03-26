@@ -10,6 +10,8 @@ validates :content, :presence => true
 # declare the relationship between two models and in case article destroyed comment will be destroyed as well
 
 has_many :comments, :dependent => :destroy
+has_many :voted_users, :dependent => :destroy
+
 
 # search by solr
 searchable do

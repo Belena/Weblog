@@ -22,10 +22,10 @@ class CommentsController < ApplicationController
 # and then remove it from the database and send us back to the show action for the post.
   
   def destroy
-    @article = Article.find(params[:post_id])
+    @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
     @comment.destroy
-    redirect_to post_path(@article)
+    redirect_to article_path(@article)
   end
  
 end

@@ -1,0 +1,20 @@
+<%= form_for([@article, @article.voted_users.build]) do |f| %>
+  <div class="field">
+  	<%= f.radio_button :rvalue, "1" %>
+  	<%= label_tag(:rvalue_1, "1") %>
+  	<%= f.radio_button :rvalue, "2" %>
+  	<%= label_tag(:rvalue_2, "2") %>
+  	<%= f.radio_button :rvalue, "3" %>
+  	<%= label_tag(:rvalue_3, "3") %>
+  	<%= f.radio_button :rvalue, "4" %>
+  	<%= label_tag(:rvalue_4, "4") %>
+  	<%= f.radio_button :rvalue, "5" %>
+  	<%= label_tag(:rvalue_5, "5") %>
+
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit "Rate it!" %>
+  </div>
+
+<% end %>

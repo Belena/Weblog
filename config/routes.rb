@@ -25,6 +25,7 @@ match '/stories' => 'articles#index'
   
   resources :articles do
     resources :comments
+    resources :voted_users
   end
 
 

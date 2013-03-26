@@ -14,6 +14,7 @@
 
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag :application %>
+
     <script type="text/javascript" >
       tinyMCE.init({
         mode : "textareas",
@@ -59,17 +60,17 @@
          
           <div class="nav-collapse">
             <ul class="nav pull-right">
-              <li class="active"><%= link_to "Home", home_path %></li>
-			        <li><%= link_to "Stories", articles_path %></li>
-              <li><%= link_to "Contact us", contact_path %></li>
-	
+              <li <%= yield :home_active %>><%= link_to "Home", home_path %></li>
+			        <li <%= yield :stories_active %>><%= link_to "Stories", articles_path %></li>
+              <li <%= yield :contact_active %>><%= link_to "Contact us", contact_path %></li>
+
 			  	<% if user_signed_in? %>
 			  	<!-- <p>Signed in as <%= current_user.email %>.</p> -->
-               <li><%= link_to 'Create new article!', new_article_path %></li>
+               <li <%= yield :create_active %>><%= link_to 'Create new article!', new_article_path %></li>
                <li><%= link_to "Sign out", signout_path %></li>
     			 <% else %>
-       				 <li><%= link_to 'Sign up', new_user_registration_path %> </li>
-       				 <li><%= link_to 'Sign in', new_user_session_path %></li>
+       				 <li <%= yield :signup_active %>><%= link_to 'Sign up', new_user_registration_path %> </li>
+       				 <li <%= yield :signin_active %>><%= link_to 'Sign in', new_user_session_path %></li>
     			<% end %>
 
             
