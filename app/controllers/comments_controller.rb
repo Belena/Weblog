@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   # to allow only authenticated user to delete comments
 
-  http_basic_authenticate_with :name => "ddh", :password => "secret", :only =>destroy
+  #http_basic_authenticate_with :name => "ddh", :password => "secret", :only => "destroy"
  
   # sets up nesting for comments. 
   # We use the create method on @article.comments to create and save the comment. 
@@ -12,7 +12,9 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(params[:comment])
+    @comment.user_id = current_user
     redirect_to article_path(@article)
+    
   end
 
 # The destroy action will find the post we are looking at, 
@@ -20,10 +22,10 @@ class CommentsController < ApplicationController
 # and then remove it from the database and send us back to the show action for the post.
   
   def destroy
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
+    @article = Article.find(params[:post_id])
+    @comment = @article.comments.find(params[:id])
     @comment.destroy
-    redirect_to post_path(@post)
+    redirect_to post_path(@article)
   end
  
 end

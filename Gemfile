@@ -6,6 +6,8 @@ gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 
+
+
 gem 'sunspot_rails', '~> 1.3.0'
 
 group :development do
