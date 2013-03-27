@@ -1,5 +1,6 @@
 class VotedUsersController < ApplicationController
-
+  before_filter :authenticate_user!
+  
   def create
     @voted_user = VotedUser.where(:article_id => params[:article_id], :user_id => current_user).first_or_create
 
