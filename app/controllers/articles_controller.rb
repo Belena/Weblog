@@ -7,7 +7,7 @@ before_filter :authenticate_user!, :except => [:show, :index]
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.where(:published => true)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,11 +18,15 @@ before_filter :authenticate_user!, :except => [:show, :index]
   # GET /articles/1
   # GET /articles/1.json
   def show
-    @article = Article.find(params[:id])
+    @article = Article.where(:id => params[:id], :published => true).first
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @article }
+      if @article
+        format.html # show.html.erb
+        format.json { render json: @article }
+      else
+        format.html { redirect_to home_path, notice: 'Article has not been published yet.' }
+      end
     end
   end
 
@@ -47,10 +51,12 @@ before_filter :authenticate_user!, :except => [:show, :index]
   def create
     @article = Article.new(params[:article])
     @article.author = current_user.username
+    @article.published = false
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { redirect_to home_path, notice: "Article was successfully created " +
+          "and will be published after admin's review." }
         format.json { render json: @article, status: :created, location: @article }
       else
         format.html { render action: "new" }
