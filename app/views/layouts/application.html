@@ -48,16 +48,14 @@
    <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          
-             <div class="pull-right">
-              <% if user_signed_in? %>
-              <h5>Signed in as <%= current_user.email %></h5>
-              <% end %>
-              </div>
-              <br />
-             <div class="pull-right">
-             <%= render :partial => 'articles/search'%>
-              </div>
+        <div class="pull-right">
+        
+          <%= render :partial => 'articles/search' %>
+ 
+            <% if user_signed_in? %>
+            <h7>Signed in as <%= current_user.email %></h7>
+            <% end %>
+        </div>
           
 
           <a class="brand" href="/home"><span class="color-highlight">OVERSEAS</a>
@@ -80,6 +78,7 @@
 
             </ul>
           </div><!--/.nav-collapse -->
+        
         </div>
       </div>
     </div>

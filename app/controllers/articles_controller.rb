@@ -4,6 +4,18 @@ class ArticlesController < ApplicationController
   # http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
 before_filter :authenticate_user!, :except => [:show, :index]
 
+  
+ def search
+  @search_term = params[:q]
+  st = "%#{params[:q]}%"
+  @articles = Article.where("Title like ? or Content like ?", st, st)
+  respond_to do |format|
+  format.html # index.html.erb
+  format.json { render json: @items }
+  end
+   end
+  
+
   # GET /articles
   # GET /articles.json
   def index
@@ -100,3 +112,6 @@ before_filter :authenticate_user!, :except => [:show, :index]
     end
   end
 end
+
+  
+

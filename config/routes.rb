@@ -7,14 +7,18 @@ Weblog::Application.routes.draw do
   # devise_for :admins
   # mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  resources :searches
+  # resources :searches
 
+
+  match '/search' => 'articles#search'
 
   get "site/about"
 
   get "site/contact"
 
   get "site/home"
+
+
 
 match '/about' => 'site#about'
 match '/contact' => 'site#contact'

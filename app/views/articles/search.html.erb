@@ -1,0 +1,28 @@
+<h1>Search Articles</h1>
+<br />
+<h3>Searching for: <%= @search_term %></h3>
+<table class="catalog">
+<% if @articles.length == 0 %>
+<br />
+<h2>No Products found for this search term!!</h2>
+<% end %>
+<% @articles.each do |article| %>
+<tr>
+
+<td>
+<div class="title">
+<%= link_to article.title, article %>
+</div>
+<div class="content">
+<%=h article.content %>
+</div>
+
+
+</td>
+</tr>
+<% end %>
+</table>
+<% if session[:login] == 1 %>
+<p><%= link_to 'New article', new_article_path %></p>
+<% end %>
+
