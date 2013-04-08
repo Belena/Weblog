@@ -7,7 +7,10 @@
   <b>Content of article:</b>
   <%= @article.content %>
 </p>
-
+<p>
+  <b>Image:</b>
+  <%= image_tag @article.image_url.to_s, :size => "200x180" %>
+</p>
 <p>
   <b>Author:</b>
   <%= @article.author %>
@@ -30,7 +33,7 @@
 <h2>Comments</h2></br>
 <%= render @article.comments %> 
 
-<!-- This adds a form on the Post show page that creates a new comment by calling the CommentsController create action -->
+<!-- This adds a form on the Article show page that creates a new comment by calling the CommentsController create action -->
 <!-- render just defines the partial template we want to render, comments/form -->
 
 <h2>Add a comment:</h2>

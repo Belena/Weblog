@@ -12,7 +12,11 @@ gem 'sass-rails',   '~> 3.2.3'
 gem "meta_search",    '>= 1.1.0.pre'
 
 
-gem 'sunspot_rails', '~> 1.3.0'
+# gem 'sunspot_rails', '~> 1.3.0'
+
+gem "rmagick", '2.13.2'
+gem "carrierwave"
+gem "mini_magick"
 
 group :development do
     gem 'sunspot_solr'

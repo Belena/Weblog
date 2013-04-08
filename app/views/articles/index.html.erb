@@ -15,6 +15,9 @@
     <h3><%= link_to article.title, article %></h3>
     
     <p><%= article.content.html_safe %></p> <!-- User will submit HTML as an article content. We want to render it as it is. <script> is still handled safely by RoR -->
+
+    <p><%= image_tag article.image_url.to_s if article.image_url.present? %></p>
+
     <p>Created by: </br><%= article.author %></p>
     <p>Category: <%= article.category %></p>
     <p><%= article.rating %></p>

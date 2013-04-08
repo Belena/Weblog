@@ -21,9 +21,13 @@ Weblog::Application.routes.draw do
 
 
 match '/about' => 'site#about'
-match '/contact' => 'site#contact'
 match '/home' => 'site#home'
 match '/stories' => 'articles#index'
+
+
+match '/contact' => 'contact#new', :as => 'contact', :via => :get
+match '/contact' => 'contact#create', :as => 'contact', :via => :post
+
 
   devise_for :users, :path_names => {:sign_up => "register"} do
     get 'signout' => 'devise/sessions#destroy'

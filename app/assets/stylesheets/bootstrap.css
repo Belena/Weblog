@@ -161,7 +161,8 @@ body {
   font-size: 13px;
   line-height: 18px;
   color: #333333;
-  background: #f5f5f5 url(../assets/cross-pattern.png) repeat top center;
+  background: #f5f5f5 no-repeat;
+  background-size: 100% 100%;
 }
 a {
   color: #A8BF75;
@@ -3601,8 +3602,8 @@ background-color: #0088cc;
   float: left;
   padding: 16px 20px 12px;
   margin-left: -20px;
-  font-size: 50px;
-  font-weight: 200;
+  font-size: 60px;
+  font-weight: 300;
   line-height: 1;
   color: #c5bfb3;
   opacity: 0.6;
@@ -5018,7 +5019,7 @@ footer > p {
 }
 
 
-/*********More Custom Styles for Respond Template************/
+/*********More Custom Styles************/
 .color-highlight {
 	color: #A8BF75;
 }
