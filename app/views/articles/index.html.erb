@@ -2,40 +2,33 @@
 <%= content_for :title do %>Stories<% end %>
 
 <div class="page-header">
-<h1>All articles</h1>
+<h1 style="text-align: center">All strories</h1>
 </div>
-
-
 <br/>
-
-
 <% @articles.each do |article| %>
   <div class ="article">
     <!-- "link to" creates a link to article's title, "article" - where to redirect -->
-    <h3><%= link_to article.title, article %></h3>
+    <h3 style="text-align: center"><%= link_to article.title, article %></h3>
     
     <p><%= article.content.html_safe %></p> <!-- User will submit HTML as an article content. We want to render it as it is. <script> is still handled safely by RoR -->
 
-    <p><%= image_tag article.image_url.to_s if article.image_url.present? %></p>
+    <p align="center"><%= image_tag article.image_url.to_s if article.image_url.present? %></p>
 
-    <p>Created by: </br><%= article.author %></p>
-    <p>Category: <%= article.category %></p>
-    <p><%= article.rating %></p>
+    <h5>Created by: <%= article.author %></h5>
+    <h5>Category: <%= article.category %></h5>
+    <h5>Rating:<%= article.rating %></h5>
     
     <div class = "meta">
         <%= link_to time_ago_in_words(article.created_at) + " ago", article %>
       
-       <span class="admin">
-        |<%= link_to 'Edit', edit_article_path(article) %>
-         <%= link_to 'Delete', article, :confirm => 'Are you sure you want to delete this article?', :method => :delete %>
-        </span> 
+      
     </div>
 </div>
-  
+  <hr />
 <% end %>
 </table>
 
 <br />
-<hr />
 
-<%= link_to 'New Article', new_article_path %>
+
+<%= link_to "Create and share your own story!", new_article_path %>

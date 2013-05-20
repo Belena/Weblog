@@ -1,19 +1,21 @@
+<h2 style="text-align: center" >
+  <%= @article.title%>
+</h2>
+<br />
+
+
 <p>
-  <b>Article's title:</b>
-  <%= @article.title %>
+  <%= @article.content.html_safe %>
 </p>
 
 <p>
-  <b>Content of article:</b>
-  <%= @article.content %>
+ <!-- <%= image_tag @article.image_url.to_s if @article.image_url.present? %> -->
+ <center><%= image_tag %></center>
+
 </p>
+
 <p>
-  <b>Image:</b>
-  <%= image_tag @article.image_url.to_s, :size => "200x180" %>
-</p>
-<p>
-  <b>Author:</b>
-  <%= @article.author %>
+  <h4>Created by:</h4><%= @article.author %>
 </p>
 
 <p>
@@ -36,10 +38,10 @@
 <!-- This adds a form on the Article show page that creates a new comment by calling the CommentsController create action -->
 <!-- render just defines the partial template we want to render, comments/form -->
 
-<h2>Add a comment:</h2>
+<h2>Add your comment:</h2>
 <%= render "comments/form" %>
 <br />
 
 
-<%= link_to 'Edit Article', edit_article_path(@article) %> |
-<%= link_to 'Back to articles', articles_path %>
+
+<%= link_to 'Back to stories', articles_path %>

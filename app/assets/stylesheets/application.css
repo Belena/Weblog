@@ -12,3 +12,6 @@
  *= require_self
  *= require_tree .
  */
+.brand {
+	font-family: 'Simonetta', cursive !important;
+}

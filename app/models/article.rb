@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-	attr_accessible :article_id, :author, :category, :content, :created, :rating, :title, :published, :image, :remote_image_url
+	attr_accessible :article_id, :author, :category, :content, :created, :rating, :title, :published, :image, :remove_image, :remote_image_url, :image_cache
 
 	validates :title, :uniqueness => { :message => 'already taken!'}
 	validates :title, :presence => true,

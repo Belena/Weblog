@@ -13,31 +13,46 @@
 
   
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title, :style => 'width: 520px;'%>
   </div>
+  <br />
   <div class="field">
-    <%= f.label :content %><br />
+    <%= f.label :content %>
     <%= f.text_area :content, :style => 'width: 520px;' 'height:300px;'%>
   </div>
+  <br />
+  <!-- <div class="field">
+    <%= f.file_field :image%>
+  </div> -->
+ PISKA
   <div class="field">
+    <%= image_tag(@article.image_url.to_s) if @article.image? %>
     <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+ 
   </div>
-
+  JOPA
+ 
+ <br />
   <div class="field">
-    <%= f.label :remote_image_url, "or image URL" %><br />
+    <%= f.label :remote_image_url, "/or insert image URL" %>
     <%= f.text_field :remote_image_url %>
   </div>
-
+ 
+      <%= f.check_box :remove_image %>
+      <p>Remove image</p>
+    
+   
   <div class="field">
-    <%= f.label :category %><br />
+    <%= f.label :category %>
     <%= f.select(:category, [['Travel'], ['Personal'], ['Unusual'],]) %>
    <!-- <%= f.text_field :category, :style => 'width: 520px;' %> -->
   </div>
-
+<br />
  
   <div class="actions">
-    <%= f.submit "Add a new article" %>
+    <%= f.submit "Add article", :class => 'navbar btn' %>
   </div>
 
 <% end %>

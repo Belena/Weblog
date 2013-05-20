@@ -14,7 +14,7 @@ gem "meta_search",    '>= 1.1.0.pre'
 
 # gem 'sunspot_rails', '~> 1.3.0'
 
-gem "rmagick", '2.13.2'
+# gem "rmagick", '2.13.2'
 gem "carrierwave"
 gem "mini_magick"
 
@@ -41,6 +41,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+gem 'will_paginate', '~> 3.0.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -70,7 +70,7 @@
 
 			  	<% if user_signed_in? %>
 			  	<!-- <p>Signed in as <%= current_user.email %>.</p> -->
-               <li <%= yield :create_active %>><%= link_to 'Create new article!', new_article_path %></li>
+               <li <%= yield :create_active %>><%= link_to 'Add your story!', new_article_path %></li>
                <li><%= link_to "Sign out", signout_path %></li>
                <li><%= link_to "Profile", edit_user_registration_path %>
     			 <% else %>
@@ -90,11 +90,11 @@
           <div id="myCarousel" class="carousel slide">
             <div class="carousel-inner">
               <div class="item active">
-                <%= image_tag('featured/1.jpg') %>
+                <%= image_tag('carousel/1.jpg') %>
               
               </div>
               <div class="item">
-                <%= image_tag('featured/2.jpg') %>
+                <%= image_tag('carousel/2.jpg') %>
               
               </div>
             </div>
@@ -131,17 +131,17 @@
 					</div>
 				</div>
         <p>
-      &copy;2013 NCI<br>
-      Design by Elena </a>
+      &copy;2013 NCI</a>
       </p>
 		</footer>
     </div><!-- /container -->
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+   
     <script src="/assets/jquery.js"></script>
     <script src="/assets/bootstrap-transition.js"></script>
-	<script src="/assets/bootstrap-carousel.js"></script>
+	  <script src="/assets/bootstrap-carousel.js"></script>
     <script src="/assets/bootstrap-alert.js"></script>
     <script src="/assets/bootstrap-modal.js"></script>
     <script src="/assets/bootstrap-dropdown.js"></script>

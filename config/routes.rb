@@ -4,10 +4,9 @@ Weblog::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  # devise_for :admins
-  # mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-
-  # resources :searches
+  devise_for :users, :path_names => {:sign_up => "register"} do
+    get 'signout' => 'devise/sessions#destroy'
+  end
 
 
   match '/search' => 'articles#search'
@@ -18,20 +17,14 @@ Weblog::Application.routes.draw do
 
   get "site/home"
 
+  match '/about' => 'site#about'
+  match '/home' => 'site#home'
+  match '/stories' => 'articles#index'
+  match '/contact' => 'contact#new', :as => 'contact', :via => :get
+  match '/contact' => 'contact#create', :as => 'contact', :via => :post
 
 
-match '/about' => 'site#about'
-match '/home' => 'site#home'
-match '/stories' => 'articles#index'
-
-
-match '/contact' => 'contact#new', :as => 'contact', :via => :get
-match '/contact' => 'contact#create', :as => 'contact', :via => :post
-
-
-  devise_for :users, :path_names => {:sign_up => "register"} do
-    get 'signout' => 'devise/sessions#destroy'
-  end
+  
 
   # add a route so that Rails knows where we would like to navigate 
   # to see comments

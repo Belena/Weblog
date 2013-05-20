@@ -7,13 +7,22 @@ before_filter :authenticate_user!, :except => [:show, :index]
   
  def search
   @search_term = params[:q]
-  st = "%#{params[:q]}%"
-  @articles = Article.where("Title like ? or Content like ?", st, st)
-  respond_to do |format|
-  format.html # index.html.erb
-  format.json { render json: @items }
+
+  if @search_term.length < 3 or @search_term.length >= 30
+    search_error = true
+  else
+    st = "%#{params[:q]}%"
+    @articles = Article.where("Title like ? or Content like ?", st, st)
   end
-   end
+
+  respond_to do |format|
+    if search_error
+      format.html { redirect_to home_path, notice: 'Please enter correct search term (alpha-numerical value at least 3 symbols long).' }
+    else
+      format.html # search.html.erb
+    end
+  end
+end
   
 
   # GET /articles
@@ -31,6 +40,8 @@ before_filter :authenticate_user!, :except => [:show, :index]
   # GET /articles/1.json
   def show
     @article = Article.where(:id => params[:id], :published => true).first
+
+    Post.paginate(:page => params[:page], :per_page => 30)
 
     respond_to do |format|
       if @article
@@ -63,7 +74,7 @@ before_filter :authenticate_user!, :except => [:show, :index]
   def create
     @article = Article.new(params[:article])
     @article.author = current_user.username
-    @article.published = false
+    @article.published = true
 
     respond_to do |format|
       if @article.save

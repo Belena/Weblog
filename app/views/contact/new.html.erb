@@ -1,39 +1,43 @@
 <div class="row">
-  <div class="span8 offset2">
-    <h1>Send us your feedback:</h1>
+  <div class="span6 offset3">
+    <h1>Send us your feedback:</h1><br />
     
 
 <%= form_for @message, :url => contact_path do |form| %>
   <fieldset class="fields">
+   
     <div class="field">
-
-     <b>Please, enter you name: <%= @message.name %></b>
-     <br />
-      <%= form.text_field :name,:style => 'width: 520px;' %>
+    <%= @message.name %>
+   <p>Please, enter you name: </p>
+      <%= form.text_field :name,:style => 'width: 360px;' 'height:30px;'%>
     </div>
+    <br />
+    <div class="field">
+      <%= @message.email %>
+      <p>Email</p>
+      <%= form.text_field :email, :style => 'width: 360px;''height:30px;' %>
+    </div>
+    <br />
+    <div class="field">
+     <%= @message.subject %>
+     <p>Subject: </p>
+      <%= form.text_field :subject, :style => 'width: 360px;''height:30px;' %>
+    </div>
+    <br />
     
     <div class="field">
-      <b>Email: <%= @message.email %></b><br />
-      <%= form.text_field :email, :style => 'width: 520px;' %>
-    </div>
-    
-    <div class="field">
-     <b>Subject: <%= @message.subject %></b><br />
-      <%= form.text_field :subject, :style => 'width: 520px;' %>
-    </div>
-    
-    <div class="field">
-      <b>Message: <%= @message.body %></b><br />
-      <%= form.text_area :body, :style => 'width: 520px;' 'height:300px;' %>
+       <%= @message.body %>
+       <p>Your Message:</p>
+      <%= form.text_area :body, :style => 'width: 360px;' 'height:300px;' %>
     </div>
   </fieldset>
   
-  <fieldset class="actions">
-    <%= form.submit "Send" %>
+  <fieldset>
+    <%= form.submit "Send", :class => 'navbar btn' %>
   </fieldset>
 <% end %>
 
-    <%= link_to 'Back', articles_path %> |
+    <%= link_to 'Back to all Stories', articles_path %> |
     <%= link_to 'Home', home_path %>
   </div>
 </div>
