@@ -28,7 +28,7 @@ end
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.where(:published => true)
+    @articles = Article.where(:published => true).paginate :page => params[:page], :per_page => 3
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,8 +40,6 @@ end
   # GET /articles/1.json
   def show
     @article = Article.where(:id => params[:id], :published => true).first
-
-    Post.paginate(:page => params[:page], :per_page => 30)
 
     respond_to do |format|
       if @article
