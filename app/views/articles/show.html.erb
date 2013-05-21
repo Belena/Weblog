@@ -9,13 +9,13 @@
 </p>
 
 <p>
- <!-- <%= image_tag @article.image_url.to_s if @article.image_url.present? %> -->
- <center><%= image_tag %></center>
+ <center><%= image_tag @article.image_url.to_s if @article.image.present? %></center>
+
 
 </p>
 
 <p>
-  <h4>Created by:</h4><%= @article.author %>
+  <b>Created by:</b> <%= @article.author %>
 </p>
 
 <p>

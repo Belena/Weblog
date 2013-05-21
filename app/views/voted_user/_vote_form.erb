@@ -1,16 +1,22 @@
 <%= form_for([@article, @article.voted_users.build]) do |f| %>
-  <div class="field">
-  	<%= f.radio_button :rvalue, "1" %>
-  	<%= label_tag(:rvalue_1, "1") %>
-  	<%= f.radio_button :rvalue, "2" %>
-  	<%= label_tag(:rvalue_2, "2") %>
-  	<%= f.radio_button :rvalue, "3" %>
-  	<%= label_tag(:rvalue_3, "3") %>
-  	<%= f.radio_button :rvalue, "4" %>
-  	<%= label_tag(:rvalue_4, "4") %>
-  	<%= f.radio_button :rvalue, "5" %>
-  	<%= label_tag(:rvalue_5, "5") %>
-
+  <div class="field" >
+  	<table>
+    <tr>
+    <td><%= f.radio_button :rvalue, "1", :style => 'width: 25px;'%></td>
+  	<td><%= f.radio_button :rvalue, "2", :style => 'width: 25px;' %></td>
+  	<td><%= f.radio_button :rvalue, "3", :style => 'width: 25px;'%></td>
+  	<td><%= f.radio_button :rvalue, "4", :style => 'width: 25px;' %></td>
+  	<td><%= f.radio_button :rvalue, "5", :style => 'width: 25px;' %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag(:rvalue_1, "1") %></td>
+      <td><%= label_tag(:rvalue_2, "2") %></td>
+      <td><%= label_tag(:rvalue_3, "3") %></td>
+      <td><%= label_tag(:rvalue_4, "4") %></td>
+      <td><%= label_tag(:rvalue_5, "5") %></td>
+    </tr>
+    
+    </table>
   </div>
  
   <div class="actions">

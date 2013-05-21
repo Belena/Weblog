@@ -14,26 +14,25 @@
   
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title, :style => 'width: 520px;'%>
+    <%= f.text_field :title, :style => 'width: 420px;'%>
   </div>
   <br />
   <div class="field">
     <%= f.label :content %>
-    <%= f.text_area :content, :style => 'width: 520px;' 'height:300px;'%>
+    <%= f.text_area :content, :style => 'width: 420px;' 'height:300px;'%>
   </div>
   <br />
   <!-- <div class="field">
     <%= f.file_field :image%>
   </div> -->
- PISKA
+ 
   <div class="field">
     <%= image_tag(@article.image_url.to_s) if @article.image? %>
     <%= f.file_field :image %>
     <%= f.hidden_field :image_cache %>
  
   </div>
-  JOPA
- 
+  
  <br />
   <div class="field">
     <%= f.label :remote_image_url, "/or insert image URL" %>

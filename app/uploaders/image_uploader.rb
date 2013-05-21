@@ -6,7 +6,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  process :resize_to_fill => [700, 500, gravity = 'Center']
+  process :resize_to_fill => [300, 200, gravity = 'Center']
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   # include Sprockets::Helpers::RailsHelper

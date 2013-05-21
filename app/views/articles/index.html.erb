@@ -10,11 +10,14 @@
     <!-- "link to" creates a link to article's title, "article" - where to redirect -->
     <h3 style="text-align: center"><%= link_to article.title, article %></h3>
     
-    <p><%= article.content.html_safe %></p> <!-- User will submit HTML as an article content. We want to render it as it is. <script> is still handled safely by RoR -->
+    <!-- <p><%= article.content.html_safe %></p> User will submit HTML as an article content. We want to render it as it is. <script> is still handled safely by RoR -->
+
+<p><%= truncate_html article.content, length: 160 %></p>
+<p><%= link_to 'read more', article %></p>
 
     <p align="center"><%= image_tag article.image_url.to_s if article.image_url.present? %></p>
 
-    <h5>Created by: <%= article.author %></h5>
+    <!-- <h5>Created by: <%= article.author %></h5>
     <h5>Category: <%= article.category %></h5>
     <h5>Rating:<%= article.rating %></h5>
     
@@ -22,7 +25,7 @@
         <%= link_to time_ago_in_words(article.created_at) + " ago", article %>
       
       
-    </div>
+    </div> -->
 </div>
   <hr />
 <% end %>
@@ -32,4 +35,7 @@
 
 
 <%= link_to "Create and share your own story!", new_article_path %>
-<%= will_paginate @articles %>
+ 
+ 
+  <br /> 
+    <center><h4><%= paginate @articles %></h4></center>
