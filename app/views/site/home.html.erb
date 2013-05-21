@@ -1,10 +1,10 @@
 <%= content_for :home_active do %>class="active"<% end %>
-<h1><center>Welcome to Overseas - real stories about interesting places you always wanted to visit!</center></h1>
+<!-- <h1><center>Welcome to Overseas - real stories about interesting places you always wanted to visit!</center></h1> -->
 <hr />
 
 <!--Start first row of columns-->
 	  
-	  <div class="row">
+	  <!-- <div class="row">
 		<div class="span6 thumb-list">
 			<a rel="lightbox[secondary]" href="/assets/placeholder.png"><%= image_tag('placeholder.png', :size => "220x130", :alt => 'placeholder.png') %>
 			<h3><a href="#">This is a title of an article</a></h3>
@@ -12,36 +12,22 @@
 			<p>This will be the description of article </p>
       <a href="#" class="btn">Details</a>
 
-		</div>
+		</div> -->
 	
-		<div class="span6 thumb-list">
-			<a rel="lightbox[secondary]" href="/assets/placeholder.png"><%= image_tag('placeholder.png', :size => "220x130", :alt => 'placeholder.png') %>
-			<h3><a href="#">This is a title of an article</a></h3>
-			<p>This will be the description of article This is a title of an article</a></h3>
-			<p>This will be the description of article </p>
-      <a href="#" class="btn">Details</a>
+	<div class="row">
+	<% @articles.each_with_index do |article, i| %>
+		<% if i % 3 == 0 %>
+		<div class="row">
+		<% end %>
 
-		</div>
-	</div>
-	
-	 <hr />
+		<div class="span4 thumb-list">
+    	<h3 style="text-align: center"><%= link_to article.title, article %></h3>
+    	<p><%= truncate_html article.content, length: 200 %></p>
+    	<p><%= link_to 'read more', article %></p>
+    	<p align="center"><%= image_tag article.image_url(:thumb) if article.image_url.present? %></p> 
+    	</div>
 
-	  <div class="row">
-	  
-		<div class="span6 thumb-list">
-			<a rel="lightbox[secondary]" href="/assets/placeholder.png"><%= image_tag('placeholder.png', :size => "220x130", :alt => 'placeholder.png') %>
-			<h3><a href="#">This is a title of an article</a></h3>
-			<p>This will be the description of article This is a title of an article</a></h3>
-			<p>This will be the description of article </p>
-     		 <a href="#" class="btn">Details</a>
-
+    	<% if i % 3 == 2 %>
 		</div>
-		<div class="span6 thumb-list">
-			<a rel="lightbox[secondary]" href="/assets/placeholder.png"><%= image_tag('placeholder.png', :size => "220x130", :alt => 'placeholder.png') %>
-			<h3><a href="#">This is a title of an article</a></h3>
-			<p>This will be the description of article This is a title of an article</a></h3>
-			<p>This will be the description of article </p>
-      		<a href="#" class="btn">Details</a>
-		</div>
-	  </div>
-	 <hr />
+		<% end %>
+   <% end %>

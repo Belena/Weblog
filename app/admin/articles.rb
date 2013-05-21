@@ -1,5 +1,6 @@
 ActiveAdmin.register Article do
-   
+
+
    index do
    	selectable_column
     column :id 
@@ -8,6 +9,7 @@ ActiveAdmin.register Article do
     end
     column :author 
     column :published
+    column :image 
     column :created_at
     default_actions
     

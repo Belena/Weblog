@@ -159,7 +159,7 @@ textarea {
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 18px;
   color: #333333;
   background: #f5f5f5 no-repeat;
@@ -4987,12 +4987,17 @@ a.badge:hover {
 	filter:alpha(opacity=85); /* For IE8 and earlier */
 }
 .thumb-list img{
-	background: red;
+	/*background: red;*/
 	float: left;
 	border: solid 1px #e1e1e1;
 	background: #fff;
 	padding: 10px;
 	margin-right: 10px;
+}
+.thumb-list p{
+  text-align: justify;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .is-padded {
 	padding: 10px;
@@ -5206,4 +5211,5 @@ footer > p {
 .lb-data .lb-close:hover {
   cursor: pointer;
 }
+
 
