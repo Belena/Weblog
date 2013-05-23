@@ -5,12 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Weblog" %></title>
-   
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
-    <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag :application %>
@@ -97,6 +91,10 @@
                 <%= image_tag('carousel/2.jpg') %>
               
               </div>
+              <div class="item">
+                <%= image_tag('carousel/3.jpg') %>
+              
+              </div>
             </div>
             <a class="left carousel-control" href="#myCarousel" data-slide="prev"><%= image_tag('arrow.png', :alt => 'arrow.png') %></a>
             <a class="right carousel-control" href="#myCarousel" data-slide="next"><%= image_tag('arrow2.png', :alt => 'arrow2.png') %></a>
@@ -108,7 +106,7 @@
 
 
  <div class="row">
-		<div class="span12">
+		<div class="span12" >
 	 		<% flash.each do |key, value| %>
 	 			<%if flash[:notice] -%>
 	 				<p style="color: green"><%= value %></p>
@@ -122,10 +120,6 @@
 		</div>
 	</div>
 		
-
-     
-	  
-		<footer class="row">
 				<div class="span12">
 					<div class="is-padded">
 					</div>
@@ -133,11 +127,9 @@
         <p>
       &copy;2013 NCI</a>
       </p>
-		</footer>
+		
     </div><!-- /container -->
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- javascript ================================================== -->
    
     <script src="/assets/jquery.js"></script>
     <script src="/assets/bootstrap-transition.js"></script>

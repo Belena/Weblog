@@ -29,7 +29,7 @@ end
   # GET /articles.json
   def index
     # @articles = Article.where(:published => true).paginate(:page => params[:page], :order => 'created_at DESC', :per_page => 5) 
-    @articles = Article.where(:published => true).order("created_at DESC").page(params[:page]).per(5)
+    @articles = Article.where(:published => true).order("created_at DESC").page(params[:page]).per(3)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @articles }

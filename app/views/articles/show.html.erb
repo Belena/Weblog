@@ -3,16 +3,17 @@
 </h2>
 <br />
 
+<p style="position: relative; display: block; float: left; margin: 5px;">
+ <%= image_tag @article.image_url.to_s if @article.image.present? %>
 
-<p style="text-align: justify;">
+
+</p>
+
+<p style="text-align: justify;text-indent:30px;">
   <%= @article.content.html_safe%>
 </p>
 
-<p>
- <center><%= image_tag @article.image_url.to_s if @article.image.present? %></center>
 
-
-</p>
 
 <p>
   <b>Created by:</b> <%= @article.author %>

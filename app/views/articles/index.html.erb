@@ -9,13 +9,15 @@
   <div class ="article">
     <!-- "link to" creates a link to article's title, "article" - where to redirect -->
     <h3 style="text-align: center"><%= link_to article.title, article %></h3>
-
-    <p><%= truncate_html article.content, length: 160 %></p>
-    <p><%= link_to 'read more', article %></p>
-
-    <p align="center"><%= image_tag article.image_url.to_s if article.image_url.present? %></p> 
+    <p style="padding-top: 20px; display: block; position: relative; float: left;"><%= image_tag article.image_url.to_s if article.image_url.present? %></p> 
+    
+    <p style="text-align:justify; text-indent:30px; padding-top: 30px; display: block; position:relative; left:10px;"><%= truncate_html article.content, length: 1000 %></p>
+    <p style="display: block; position:relative; left:10px;"><%= link_to 'read more', article %></p>
     </div> 
-</div>
+    <div style="clear:both;"></div>
+
+    
+
   <hr />
 <% end %>
 

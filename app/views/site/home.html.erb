@@ -14,17 +14,19 @@
 
 		</div> -->
 	
-	<div class="row">
+	<div class="row" style="padding-left:20px;">
 	<% @articles.each_with_index do |article, i| %>
 		<% if i % 3 == 0 %>
 		<div class="row">
 		<% end %>
 
 		<div class="span4 thumb-list">
-    	<h3 style="text-align: center"><%= link_to article.title, article %></h3>
-    	<p><%= truncate_html article.content, length: 200 %></p>
-    	<p><%= link_to 'read more', article %></p>
-    	<p align="center"><%= image_tag article.image_url(:thumb) if article.image_url.present? %></p> 
+    	<div class="showcase">
+    		<h3 style="text-align: center; height: 50px;"><%= link_to article.title, article %></h3>
+    		<p style="padding-top: 10px; text-indent: 20px;"><%= truncate_html article.content, length: 200 %></p>
+    		<p><%= link_to 'read more', article %></p>
+    	</div>
+    	<center><p><%= image_tag article.image_url(:thumb) if article.image_url.present? %></p></center>
     	</div>
 
     	<% if i % 3 == 2 %>

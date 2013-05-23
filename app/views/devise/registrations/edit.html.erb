@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="span4 offset4">
-<center><h2>Hello, <%= current_user.username %>! </h2>
+  <div style="position: relative; left: 30%">
+<h2>Hello, <%= current_user.username %>! </h2>
 <h3>want to update your data?</h3>
-</center>
+
 <div><%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
