@@ -1,11 +1,12 @@
 <%= form_for([@article, @article.comments.build]) do |f| %>
+ 
   <div class="field">
-    
-    <%= f.text_field :body, :style => 'width: 320px;' 'height:150px;'%>
+    <!-- <%= f.label :body %><br /> -->
+    <%= f.text_area :body, :style => 'width: 400px;' 'height:300px;' 'font-size:14px;'%>
   </div>
+  
   <br />
   <div class="actions">
     <%= f.submit "Submit"%>
-
   </div>
 <% end %>

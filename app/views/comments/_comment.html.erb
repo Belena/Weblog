@@ -1,11 +1,9 @@
-<p>
-  <b>Comment:</b>
-  <%= comment.body %>
-</p>
- 
 
-<!-- <p>
-  <%= link_to 'Destroy comment', [comment.article, comment],
-               :confirm => 'Are you sure?',
-               :method => :delete %>
-</p> -->
+
+<p>
+  <b>Comment:</b> <%= comment.body.html_safe %>
+</p>
+ <p>
+  <b>Author:</b> <%= current_user.username %>
+</p>
+
