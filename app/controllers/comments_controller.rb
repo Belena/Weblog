@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   # to allow only authenticated user to delete comments
 
-  #http_basic_authenticate_with :name => "ddh", :password => "secret", :only => "destroy"
+  http_basic_authenticate_with :name => "ddh", :password => "secret", :only => "create"
  
   # sets up nesting for comments. 
   # We use the create method on @article.comments to create and save the comment. 

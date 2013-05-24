@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
   
   # to allow change or delete articles only after authentification
-  # http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
-before_filter :authenticate_user!, :except => [:show, :index]
+  # http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show,]
+before_filter :authenticate_user!, :except => [:show, :index, :search]
 
   
  def search

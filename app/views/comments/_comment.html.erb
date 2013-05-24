@@ -4,6 +4,10 @@
   <b>Comment:</b> <%= comment.body.html_safe %>
 </p>
  <p>
-  <b>Author:</b> <%= current_user.username %>
+  <b>Author:</b> 
+<% if user_signed_in? %>
+  <%= current_user.username %>
+<% end %>
 </p>
+
 

@@ -1,6 +1,6 @@
 ActiveAdmin.register Article do
 
-
+scope :all, :default => true
    index do
    	selectable_column
     column :id 
